@@ -87,12 +87,15 @@ services:
       - -c
       - |
         echo "Installing Connector"
-         
+        
         curl -O http://client.hub.confluent.io/confluent-hub-client-latest.tar.gz
         mkdir confluent-hub-client-latest
         tar -xf confluent-hub-client-latest.tar.gz -C confluent-hub-client-latest
         ./confluent-hub-client-latest/bin/confluent-hub install --no-prompt --verbose --component-dir /usr/share/confluent-hub-components mongodb/kafka-connect-mongodb:1.5.0
         
+        sudo apt-get install unzip
+        curl --retry 3 -O https://raw.githubusercontent.com/PeerIslands/peerkafkatrans/master/custom-date-smt.zip 
+        unzip custom-date-smt.zip -d /usr/share/confluent-hub-components
         #
         echo "Launching Kafka Connect worker"
         /etc/confluent/docker/run &
