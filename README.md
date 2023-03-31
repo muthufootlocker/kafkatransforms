@@ -1,22 +1,34 @@
 # Custom Transformation
 Custom Transformations (SMTs) applied in source and sink connectors. Before transformation, message need to be in a desired format with respect to predefined transformers.
 
-## Steps
+## Note:
+If you're done any modification please update custom-smt.zip file and commit it. because it's used in docker compose file.
+
+## Steps:
+
 ### Install Maven
 Install the maven to include dependencies in the pom.xml. Then simply run,
 ```shell
-mvn install
+mvn clean install
 ```
-custom-date-smt jar and other dependency jar and files will be created in the custom-date-smt/target directory.
+Custom-smt module is there. After building the project the dependency jars and module jar will be created in the
+custom-smt-module/target/custom-smt directory.
 
-you should zip the custom-date-smt folder under the working directory.
+After that you should compress the custom-smt-module/target/custom-smt folder using the below command
+
+```shell
+tar -czvf custom-smt.tar.gz -C custom-smt-module/target custom-smt
+```
+
+To unzip this tar file use the below command. just for reference
+
+```shell
+tar -xf custom-smt.tar.gz -C .
+```
 
 ### Docker Build
-Check the docker-compose.yml file before proceed the build. There are environment variables that need 
-to be correct before deployment.
+Check the docker-compose.yml file before proceed the build. There are steps to download the above tar file and unzip and move to connect container
 
-## Note
-If you're done any modification please update custom-date-smt.zip file and commit it. because it's used in docker compose file.
 
 
 
