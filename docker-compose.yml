@@ -100,8 +100,13 @@ services:
         
         confluent-hub install --no-prompt microsoftcorporation/kafka-connect-cosmos:1.6.0
         
-        curl --retry 3 -O https://raw.githubusercontent.com/PeerIslands/peerkafkatrans/master/custom-date-smt.tar.gz
-        tar -xf custom-date-smt.tar.gz -C /usr/share/confluent-hub-components
+        #curl --retry 3 -O https://raw.githubusercontent.com/PeerIslands/kafkatransforms/dev_m/custom-smt.tar.gz
+        #tar -xf custom-smt.tar.gz -C /usr/share/confluent-hub-components
+        
+        #curl --retry 3 -O https://codeload.github.com/PeerIslands/kafkatransforms/tar.gz/refs/tags/tag_v1
+        #tar -xf custom-smt.tar.gz -C /usr/share/confluent-hub-components
+        
+        
 
         #
         echo "Launching Kafka Connect worker"
