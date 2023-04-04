@@ -98,11 +98,12 @@ services:
         confluent-hub install --no-prompt mongodb/kafka-connect-mongodb:1.9.0
         
         confluent-hub install --no-prompt microsoftcorporation/kafka-connect-cosmos:1.6.0
-      
         
-        curl --retry 3 -o  repo https://codeload.github.com/PeerIslands/kafkatransforms/tar.gz/refs/tags/tag_v2 
+        confluent-hub install --no-prompt confluentinc/connect-transforms:latest
+        
+        curl --retry 3 -o  repo https://codeload.github.com/PeerIslands/kafkatransforms/tar.gz/refs/tags/tag_v1 
         tar -xf repo
-        cd kafkatransforms-tag_v2/custom-smt-module
+        cd kafkatransforms-tag_v1/custom-smt-module
         cp -r custom-smt/   /usr/share/confluent-hub-components
 
         #

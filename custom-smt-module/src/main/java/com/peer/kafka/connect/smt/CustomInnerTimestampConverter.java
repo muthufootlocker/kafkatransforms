@@ -342,11 +342,11 @@ public abstract class CustomInnerTimestampConverter<R extends ConnectRecord<R>> 
 
     private void convertSubDocDate(Map<String, Object> json, String jsonPath){
 
+        try {
         Configuration conf = Configuration.defaultConfiguration();
         conf = conf.addOptions(Option.DEFAULT_PATH_LEAF_TO_NULL);
         DocumentContext jsonContext = JsonPath.using(conf).parse(json);
         Object currentValue = jsonContext.read(jsonPath);
-        try {
             // Update the value at the specified path
             if(currentValue!=null) {
                 jsonContext.set(jsonPath, convertTimestamp(currentValue));
@@ -374,7 +374,7 @@ public abstract class CustomInnerTimestampConverter<R extends ConnectRecord<R>> 
                     }
                 }
             }
-        } catch (PathNotFoundException e) {
+        } catch (Exception e) {
             //throw new ConnectException("Path not found while converting the array of object in CustomInnerTimestampConverter.class");
         }
     }
