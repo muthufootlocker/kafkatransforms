@@ -16,7 +16,7 @@ Check the docker-compose.yml file before proceed the build. There are environmen
 to be correct before deployment.
 
 ## Note
-If you're done any modification please update custom-date-smt.zip file and commit it. because it's used in docker compose file.
+If you're done any modification please update custom-date-smt.zip file and commit it. because it's used in docker compose file..
 
 
 
